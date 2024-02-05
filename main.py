@@ -56,7 +56,8 @@ class AnalogWatch(QWidget):
         # Get current time
         currentTime = QTime.currentTime()
         hour = currentTime.hour() % 12 + currentTime.minute() / 60.0
-        hour_angle = (hour / 12.0) * 360 - 90
+        hour_angle = (hour / 12.0) * 360 - 10 #90
+        print(f"Current Time: {currentTime.toString()}")
 
         # Custom shape for the hour hand
         painter.save()  # Save the painter's current state
@@ -76,7 +77,7 @@ class AnalogWatch(QWidget):
         painter.restore()  # Restore the painter's state
 
         # Custom shape for the minute hand
-        minute_angle = (currentTime.minute() / 60.0) * 360 - 90
+        minute_angle = (currentTime.minute() / 60.0) * 360 - 10
         painter.save()
         painter.translate(center)
         painter.rotate(minute_angle)
@@ -91,7 +92,7 @@ class AnalogWatch(QWidget):
         painter.restore()
 
         # Custom shape for the second hand
-        second_angle = (currentTime.second() / 60.0) * 360 - 90
+        second_angle = (currentTime.second() / 60.0) * 360 - 0
         painter.save()
         painter.translate(center)
         painter.rotate(second_angle)
